@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#map {
+    height: 300px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-container {
+    width: 90%;
+}
+
+.input-container {
+    background-color: #5c81eb;
+    background-image: url(./images/pattern-bg-desktop.png);
+    color: white;
+    height: 12rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+input {
+    padding: .3rem 4rem;
+    border-radius: 0.6rem;
+}
+
+.result-container > div {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.result-container > div+div::after {
+    content: "";
+    width: 1px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 0;
+    background-color: rgb(187, 187, 187);
+}
+
+.result-container p {
+    font-size: .8rem;
+} 
+
+.result-container h2 {
+    font-size: 1.3rem;
+}
+
+.result-container {
+    height: 8rem;
+    width: 50%;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    position: absolute;
+    background-color: white;
+    color: black;
+    z-index: 999;
+}

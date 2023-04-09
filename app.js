@@ -1,5 +1,5 @@
 
-// załączamy mapę
+// Adding a map to the page
 var map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -8,34 +8,38 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-// my api
+// My api key and given IP
 
-const apiKey = "at_xBJdAtUKy09djAvrhjBmeCl6kNzOc";
-let ip = "192.168.0.60";
-let apiToCall = "https://geo.ipify.org/api/v2/country?apiKey=" + apiKey + "&ipAddrxess=" + ip
+const apiKey = "at_Kj8jaalEUx3dQLHFZI3jj2yeer6BU";
+let ip = "211.14.214.5"; 
+let apiToCall = "https://geo.ipify.org/api/v2/country?apiKey=" + apiKey + "&ipAddress=" + ip;
+console.log(apiToCall)
+
+// Get input
 
 
-// input - get ip
-const getInputValue = () => {
-  let givenIp = document.querySelector('#given-ip').value
-  console.log(givenIp)
+const getIpFromInput = () => {
+  ip = document.getElementById('given-ip-input').value
+  apiToCall = "https://geo.ipify.org/api/v2/country?apiKey=" + apiKey + "&ipAddress=" + ip;
+  changeValue()  
 }
 
-// get data by ip
+const submitButton = document.getElementById('submit-btn')
+submitButton.addEventListener("click", getIpFromInput)
+
+
+// Get data by given IP
 let data;
+
 async function getIpData() {
-  const response = await fetch(apiToCall);
   console.log(apiToCall)
+  const response = await fetch(apiToCall);
   data = await response.json();
-  // console.log(data)
-  // console.log(data.ip)
-  // console.log(data.location.region)
-  // console.log(data.location.timezone)
-  // console.log(data.isp)
+  console.log(data)
 }
 
 
-// result
+// Result - change value by data
 const ipAdress = document.querySelector("#ip-adress");
 const ipLocation = document.querySelector("#location");
 const ipTimezone = document.querySelector("#timezone");
@@ -51,4 +55,4 @@ async function changeValue() {
 
 changeValue()
 
-
+// random ip 211.14.214.5

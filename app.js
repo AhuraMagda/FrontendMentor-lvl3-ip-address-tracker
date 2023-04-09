@@ -50,9 +50,7 @@ async function changeValue() {
   ipAdress.innerHTML = data.ip
   ipLocation.innerHTML = data.location.region
   ipTimezone.innerHTML = "UTC " + data.location.timezone
-  ipIsp.innerHTML = data.isp
-}
-
+  ipIsp.innerHTML = data.ispgirb
 changeValue()
 
 // random ip 211.14.214.5

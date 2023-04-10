@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
   crossorigin=""/>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
   <title>Frontend Mentor | IP Address Tracker</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -26,8 +28,9 @@
     <div class="input-container">
       <h1>IP Adress Tracker</h1>
       <form action="">
-        <input type="text" name="given-ip" id="given-ip-input" onsubmit="getInputValue()" placeholder="Search for any IP adress or domain">
-        <input type="button" value=">" id="submit-btn"/>
+        <input class="search-input" type="text" name="given-ip" id="given-ip-input" onsubmit="getInputValue()" placeholder="Search for any IP adress or domain">
+        <!-- <input class="submit-button" type="button" value=">" id="submit-btn"/> -->
+        <input class="submit-button" type="submit" value=">" id="submit-btn"/>
       </form>
       <div class="result-container">
         <div>

@@ -1,7 +1,10 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
 }
 
 #map {
@@ -33,42 +36,41 @@ body {
 h1 {
     text-align: center;
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
+}
+
+form {
+    display: flex;
 }
 
 input {
-    padding: .3rem 4rem;
-    border-radius: 0.6rem;
+    cursor: pointer;
 }
 
-.result-container > div {
-    padding: 1.5rem;
-    position: relative;
+.search-input {
+    width: 20rem;
+    padding: .6rem .6rem;
+    border-radius: .6rem 0 0 .6rem;
+    text-align: left;
 }
 
-.result-container > div+div::after {
-    content: "";
-    width: 1px;
-    height: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    left: 0;
-    background-color: rgb(187, 187, 187);
+.search-input::placeholder {
+    color: hsl(0, 0%, 59%);
 }
 
-.result-container p {
-    font-size: .8rem;
-} 
-
-.result-container h2 {
-    font-size: 1.3rem;
+.submit-button {
+    padding: .6rem;
+    border-radius: 0 .6rem .6rem 0;
+    background-color: black;
+    color: white;
+    font-weight: 600;
 }
 
+/* DISPLAY DATA */
 .result-container {
     height: 8rem;
-    width: 50%;
+    width: 80%;
+    max-width: 800px;
     top: 60%;
     left: 0;
     right: 0;
@@ -82,3 +84,37 @@ input {
     color: black;
     z-index: 999;
 }
+
+.result-container p {
+    font-weight: 500;
+    font-size: .6rem;
+    color: hsl(0, 0%, 59%);
+} 
+
+.result-container h2 {
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding-top: .7rem;
+}
+
+
+.result-container > div {
+    padding: .2rem 2.5rem .7rem 2.5rem;
+    position: relative;
+}
+
+.result-container > div+div::after {
+    content: "";
+    width: 1px;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 0;
+    background-color: rgb(187, 187, 187);
+}
+
+
+
+

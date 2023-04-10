@@ -7,10 +7,6 @@
     font-weight: 400;
 }
 
-#map {
-    height: 300px;
-}
-
 body {
     height: 100vh;
     display: flex;
@@ -18,10 +14,13 @@ body {
     justify-content: center;
 }
 
+/*  Container */
 .app-container {
     width: 90%;
+    max-width: 1000px;
 }
 
+/* Search tab */
 .input-container {
     background-color: #5c81eb;
     background-image: url(./images/pattern-bg-desktop.png);
@@ -41,17 +40,20 @@ h1 {
 
 form {
     display: flex;
+    width: 70%;
+    max-width: 25rem;
+    margin-bottom: 1.5rem;
 }
 
 input {
     cursor: pointer;
+    padding: .6rem;
 }
 
 .search-input {
-    width: 20rem;
-    padding: .6rem .6rem;
     border-radius: .6rem 0 0 .6rem;
     text-align: left;
+    width: 90%;
 }
 
 .search-input::placeholder {
@@ -59,25 +61,23 @@ input {
 }
 
 .submit-button {
-    padding: .6rem;
     border-radius: 0 .6rem .6rem 0;
     background-color: black;
     color: white;
     font-weight: 600;
+    width: 10%;
 }
 
-/* DISPLAY DATA */
+/* Display data */
 .result-container {
-    height: 8rem;
-    width: 80%;
-    max-width: 800px;
+    width: 70%;
+    max-width: 43rem;
     top: 60%;
     left: 0;
     right: 0;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
     border-radius: 1rem;
     position: absolute;
     background-color: white;
@@ -99,7 +99,7 @@ input {
 
 
 .result-container > div {
-    padding: .2rem 2.5rem .7rem 2.5rem;
+    padding: 1.7rem 2.5rem;
     position: relative;
 }
 
@@ -115,6 +115,40 @@ input {
     background-color: rgb(187, 187, 187);
 }
 
+/* Map */
 
+.map-container {
+    height: 100%;
+}
 
+#map {
+    height: 300px;
+}
 
+/* Mobile */
+
+@media screen and (max-width: 1000px) {
+    .app-container {
+        height: 100%;
+        width: 100%;
+    }
+    .result-container {
+        flex-direction: column;
+        position: static;
+    }
+    #map {
+        height: 100%;
+    }
+    .result-container > div+div::after {
+        content: none;
+    }
+    input {
+        padding: 1.3rem;
+    }
+    .search-input {
+        font-size: 1rem;
+    }
+    form {
+        max-width: 43rem;
+    }
+}

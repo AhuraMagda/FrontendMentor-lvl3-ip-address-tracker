@@ -67,7 +67,7 @@ const getIpFromInput = () => {
 
 
 // First time on page - local IP data
-setApiToCall();
+setApiToCall(false);
 changeValue()
 
 submitButton.addEventListener("click", getIpFromInput)

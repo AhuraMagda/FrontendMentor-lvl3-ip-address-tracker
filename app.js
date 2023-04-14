@@ -2,7 +2,7 @@
 
 
 // API to get geo location
-const apiKey = "at_Kj8jaalEUx3dQLHFZI3jj2yeer6BU";
+const apiKey = "at_KXo5scKHkHqvoE4fJfRzFWOEeaU8Y";
 let apiToCall;
 apiToCall = localStorage.getItem("newApiToCall")
 

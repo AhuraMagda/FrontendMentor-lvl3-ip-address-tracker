@@ -3,41 +3,59 @@
 
 // API to get geo location
 const apiKey = "at_KXo5scKHkHqvoE4fJfRzFWOEeaU8Y";
-let apiToCall;
-apiToCall = localStorage.getItem("newApiToCall")
+let apiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey;
 
 // result field
 const ipAdress = document.querySelector("#ip-adress");
 const ipLocation = document.querySelector("#location");
 const ipTimezone = document.querySelector("#timezone");
 const ipIsp = document.querySelector("#isp");
+let map = false;
+let marker;
 
 const submitButton = document.getElementById('submit-btn')
 
 
-// 1. Set API to call
-const setApiToCall = (ip) => {
-  let newApiToCall;
-  if (ip) {
-    newApiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey + "&ipAddress=" + ip;
-  } else {
-    newApiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey;
+// 0. test what type of input it is
+const testInput = () => {
+    let input = document.getElementById('given-ip-input').value
+    let ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+    let domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/
+    if(ipRegex.test(input)) {
+        setApiByIp(input)
+    } else if (domainRegex.test(input)) {
+        setApiByDomain(input)
+    } else {
+        return
+    }
   }
-  localStorage.setItem("newApiToCall", newApiToCall)
+
+// 1. Set API to call (by IP)
+const setApiByIp = (ip) => {
+    let newApiToCall;
+    newApiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey + "&ipAddress=" + ip;
+    changeValue(newApiToCall)
+}
+
+// 1. Set API to call (by domain)
+const setApiByDomain = (domain) => {
+    let newApiToCall;
+    newApiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey + "&domain=" + domain;
+    changeValue(newApiToCall)
 }
 
 
 // 2. Get data by local ip / given ip
-async function getIpData() {
-  const response = await fetch(apiToCall);
+async function getIpData(newApiToCall) {
+  const response = await fetch(newApiToCall);
   data = await response.json();
   return data;
 }
 
 
 // 3. Result field - change value by data
-async function changeValue() {
-  await getIpData();
+async function changeValue(api) {
+  await getIpData(api);
   ipAdress.innerHTML = data.ip;
   ipLocation.innerHTML = data.location.region;
   ipTimezone.innerHTML = "UTC " + data.location.timezone;
@@ -48,39 +66,46 @@ async function changeValue() {
 
 // 4. Change the map
 const setMap = (mapLat, mapLng) => {
-  let map = L.map('map').setView([mapLat, mapLng], 17);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-  L.marker([mapLat, mapLng]).addTo(map)
-    .openPopup();
+    let myIcon = L.icon({
+        iconUrl: './images/icon-location.svg',
+        iconSize: [30, 40],
+    });
+
+    if(!map) {
+        map = L.map('map').setView([mapLat, mapLng], 17);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        marker = L.marker([mapLat, mapLng], { icon: myIcon } ).addTo(map)
+          .openPopup();
+    } else {
+        map.setView([mapLat, mapLng], 13);
+        marker.setLatLng([mapLat, mapLng])
+    }
+
 }
 
+// Change "Enter" press to button click
+let inputField = document.getElementById('given-ip-input')
 
-// 0. Get input and do step 1-4
-const getIpFromInput = () => {
-  let newIp = document.getElementById('given-ip-input').value
-  setApiToCall(newIp)
-  changeValue()  
-}
+inputField.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      submitButton.click();
+    }
+  });
+
 
 
 // First time on page - local IP data (i guess it doesn't work)
-setApiToCall(false);
-changeValue()
 
-submitButton.addEventListener("click", getIpFromInput)
+changeValue(apiToCall)
 
+submitButton.addEventListener("click", testInput)
 
-
-// PROBLEM 1 - po włączeniu strony nie wyświetla nic mimo wywołania funkcji
-// bo nadpisujemy api przez localstorage i nie da się ustawić, żeby bez odświeżenia działało
-// ROZWIĄZANIE 1 - ustawić, żeby się automatycznie odświeżało po włączeniu
-// ROZWIĄZANIE 2 - podsawić API do funkcji, a nie zostawiać go na zewnątrz
-
-// PROBLEM 2 - nie wyszukuje mi po domenie
-// 1. zrobić funkcję, która rozpoznaje input
-// 1.1. wzory na domain i ip, jeśli je rozpozna wywołuje poszczególne funkcje
-// 1.2. jeśli nie pasuje to nie zmienia nic i wyświetla komunikat, że błąd
-// 1.3. skasować pattern bo na nic jest potrzebny wtedy

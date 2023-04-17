@@ -66,8 +66,21 @@ const getIpFromInput = () => {
 }
 
 
-// First time on page - local IP data
+// First time on page - local IP data (i guess it doesn't work)
 setApiToCall(false);
 changeValue()
 
 submitButton.addEventListener("click", getIpFromInput)
+
+
+
+// PROBLEM 1 - po włączeniu strony nie wyświetla nic mimo wywołania funkcji
+// bo nadpisujemy api przez localstorage i nie da się ustawić, żeby bez odświeżenia działało
+// ROZWIĄZANIE 1 - ustawić, żeby się automatycznie odświeżało po włączeniu
+// ROZWIĄZANIE 2 - podsawić API do funkcji, a nie zostawiać go na zewnątrz
+
+// PROBLEM 2 - nie wyszukuje mi po domenie
+// 1. zrobić funkcję, która rozpoznaje input
+// 1.1. wzory na domain i ip, jeśli je rozpozna wywołuje poszczególne funkcje
+// 1.2. jeśli nie pasuje to nie zmienia nic i wyświetla komunikat, że błąd
+// 1.3. skasować pattern bo na nic jest potrzebny wtedy

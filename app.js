@@ -5,6 +5,11 @@
 const apiKey = "at_KXo5scKHkHqvoE4fJfRzFWOEeaU8Y";
 let apiToCall = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey;
 
+// input field
+const inputField = document.getElementById('given-ip-input')
+const wrongInputMes = document.querySelector("form p")
+const submitButton = document.getElementById('submit-btn')
+
 // result field
 const ipAdress = document.querySelector("#ip-adress");
 const ipLocation = document.querySelector("#location");
@@ -13,7 +18,7 @@ const ipIsp = document.querySelector("#isp");
 let map = false;
 let marker;
 
-const submitButton = document.getElementById('submit-btn')
+
 
 
 // 0. test what type of input it is
@@ -26,7 +31,7 @@ const testInput = () => {
     } else if (domainRegex.test(input)) {
         setApiByDomain(input)
     } else {
-        return
+        wrongInputMes.style.visibility = "visible"
     }
   }
 
@@ -89,7 +94,7 @@ const setMap = (mapLat, mapLng) => {
 }
 
 // Change "Enter" press to button click
-let inputField = document.getElementById('given-ip-input')
+
 
 inputField.addEventListener("keypress", function(event) {
     // If the user presses the "Enter" key on the keyboard
@@ -108,4 +113,5 @@ inputField.addEventListener("keypress", function(event) {
 changeValue(apiToCall)
 
 submitButton.addEventListener("click", testInput)
+inputField.addEventListener("click", () => { wrongInputMes.style.visibility = "hidden" })
 

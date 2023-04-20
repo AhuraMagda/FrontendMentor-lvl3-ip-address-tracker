@@ -40,6 +40,7 @@ h1 {
 
 form {
     display: flex;
+    position: relative;
     width: 70%;
     max-width: 25rem;
     margin-bottom: 1.5rem;
@@ -73,6 +74,17 @@ input:focus-visible {
     width: 10%;
 }
 
+form p {
+    visibility: hidden;
+    padding: 2px;
+    position: absolute;
+    color: black;
+    background-color: white;
+    bottom: -1.8rem;
+    border: 1px solid black;
+    z-index: 999;
+}
+
 /* Display data */
 .result-container {
     width: 70%;
@@ -87,7 +99,7 @@ input:focus-visible {
     position: absolute;
     background-color: white;
     color: black;
-    z-index: 999;
+    z-index: 998;
 }
 
 .result-container p {

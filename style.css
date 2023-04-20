@@ -12,6 +12,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 /*  Container */
@@ -141,6 +142,15 @@ form p {
 #map {
     height: 300px;
 }
+
+/* Atribution */
+.attribution {
+    display: block;
+    font-size: 11px; 
+    text-align: center; }
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); }
 
 /* Mobile */
 

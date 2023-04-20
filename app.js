@@ -19,8 +19,6 @@ let map = false;
 let marker;
 
 
-
-
 // 0. test what type of input it is
 const testInput = () => {
     let input = document.getElementById('given-ip-input').value

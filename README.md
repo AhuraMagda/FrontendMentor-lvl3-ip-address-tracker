@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/AhuraMagda/ip-address-tracker-master](https://github.com/AhuraMagda/ip-address-tracker-master)
-- Live Site URL: [https://ahuramagda.github.io/ip-address-tracker-master/] (https://ahuramagda.github.io/ip-address-tracker-master/)
+- Live Site URL: [https://ahuramagda.github.io/ip-address-tracker-master/](https://ahuramagda.github.io/ip-address-tracker-master/)
 
 ## My process
 ### Built with

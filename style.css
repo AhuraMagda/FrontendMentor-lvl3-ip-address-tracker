@@ -1,50 +1,50 @@
 * {
-    margin: 0;
-    padding: 0;
     border: 0;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    height: 100vh;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    height: 100vh;
+    justify-content: center;
 }
 
 /*  Container */
 .app-container {
-    width: 90%;
     max-width: 1000px;
+    width: 90%;
 }
 
 /* Search tab */
 .input-container {
+    align-items: center;
     background-color: #5c81eb;
     background-image: url(./images/pattern-bg-desktop.png);
     color: white;
+    display: flex;
+    flex-direction: column;
     height: 12rem;
     position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
 h1 {
-    text-align: center;
-    padding: 1rem;
     font-size: 1.4rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 form {
     display: flex;
+    margin-bottom: 1.5rem;
+    max-width: 25rem;
     position: relative;
     width: 70%;
-    max-width: 25rem;
-    margin-bottom: 1.5rem;
 }
 
 input {
@@ -68,50 +68,50 @@ input:focus-visible {
 
 
 .submit-button {
-    border-radius: 0 .6rem .6rem 0;
     background-color: black;
+    border-radius: 0 .6rem .6rem 0;
     color: white;
     font-weight: 600;
     width: 10%;
 }
 
 form p {
-    visibility: hidden;
+    background-color: white;
+    border: 1px solid black;
+    bottom: -1.8rem;
+    color: black;
     padding: 2px;
     position: absolute;
-    color: black;
-    background-color: white;
-    bottom: -1.8rem;
-    border: 1px solid black;
+    visibility: hidden;
     z-index: 999;
 }
 
 /* Display data */
 .result-container {
-    width: 70%;
-    max-width: 43rem;
-    top: 60%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    background-color: white;
+    border-radius: 1rem;
+    color: black;
     display: flex;
     justify-content: center;
-    border-radius: 1rem;
+    left: 0;
+    margin: 0 auto;
+    max-width: 43rem;
     position: absolute;
-    background-color: white;
-    color: black;
+    right: 0;
+    top: 60%;
+    width: 70%;
     z-index: 998;
 }
 
 .result-container p {
-    font-weight: 500;
-    font-size: .6rem;
     color: hsl(0, 0%, 59%);
+    font-size: .6rem;
+    font-weight: 500;
 } 
 
 .result-container h2 {
-    font-weight: 500;
     font-size: 1.3rem;
+    font-weight: 500;
     padding-top: .7rem;
 }
 
@@ -122,15 +122,15 @@ form p {
 }
 
 .result-container > div+div::after {
+    background-color: rgb(187, 187, 187);
+    bottom: 0;
     content: "";
-    width: 1px;
     height: 70%;
+    left: 0;
+    margin: auto 0;
     position: absolute;
     top: 0;
-    bottom: 0;
-    margin: auto 0;
-    left: 0;
-    background-color: rgb(187, 187, 187);
+    width: 1px;
 }
 
 /* Map */
@@ -147,10 +147,12 @@ form p {
 .attribution {
     display: block;
     font-size: 11px; 
-    text-align: center; }
+    text-align: center; 
+}
 
 .attribution a { 
-    color: hsl(228, 45%, 44%); }
+    color: hsl(228, 45%, 44%); 
+}
 
 /* Mobile */
 

@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/AhuraMagda/ip-address-tracker](https://github.com/AhuraMagda/ip-address-tracker)
-- Live Site URL: [https://ahuramagda.github.io/ip-address-tracker/](https://ahuramagda.github.io/ip-address-tracker/)
+- Solution URL: [https://github.com/AhuraMagda/FrontendMentor-lvl3-ip-address-tracker](https://github.com/AhuraMagda/FrontendMentor-lvl3-ip-address-tracker)
+- Live Site URL: [https://ahuramagda.github.io/FrontendMentor-lvl3-ip-address-tracker/](https://ahuramagda.github.io/FrontendMentor-lvl3-ip-address-tracker/)
 
 ## My process
 ### Built with

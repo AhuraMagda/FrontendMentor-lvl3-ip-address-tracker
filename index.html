@@ -1,69 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./style.css" type="text/css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
 
-  <!-- linking leafletjs -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-  crossorigin=""/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
-  <title>Frontend Mentor | IP Address Tracker</title>
-
-</head>
-<body>
-  
-  <div class="app-container">
-    <div class="input-container">
-      <h1>IP Adress Tracker</h1>
-      <form action="">
-        <input class="search-input" type="text" name="given-ip" id="given-ip-input" placeholder="Search for any IP adress or domain">
-        <input class="submit-button" type="button" value=">" id="submit-btn"/>
-        <p>Input format must be "domain.com/" or "1.1.1.1"</p>
-      </form>
-      <div class="result-container">
-        <div>
-          <p>IP ADRESSS</p>
-          <h2 id="ip-adress">...</h2>
+    <!-- linking leafletjs -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="input-container">
+        <h1>IP Adress Tracker</h1>
+        <form action="">
+          <input
+            class="search-input"
+            type="text"
+            name="given-ip"
+            id="given-ip-input"
+            placeholder="Search for any IP adress or domain"
+          />
+          <input
+            class="submit-button"
+            type="button"
+            value=">"
+            id="submit-btn"
+          />
+          <p>Input format must be "domain.com/" or "1.1.1.1"</p>
+        </form>
+        <div class="result-container">
+          <div>
+            <p>IP ADRESSS</p>
+            <h2 id="ip-adress">...</h2>
+          </div>
+          <div>
+            <p>LOCATION</p>
+            <h2 id="location">...</h2>
+          </div>
+          <div>
+            <p>TIMEZONE</p>
+            <h2 id="timezone">...</h2>
+          </div>
+          <div>
+            <p>ISP</p>
+            <h2 id="isp">...</h2>
+          </div>
         </div>
-        <div>
-          <p>LOCATION</p>
-          <h2 id="location">...</h2>
-        </div>
-        <div>
-          <p>TIMEZONE</p>
-          <h2 id="timezone">...</h2>
-        </div>
-        <div>
-          <p>ISP</p>
-          <h2 id="isp">...</h2>
-        </div>
-
       </div>
-    
-    </div>
-    
-    
-    <div class="map-container">
-      <div id="map"></div>
-    </div>
-  
-  </div>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/AhuraMagda">AhuraMagda</a>.
-  </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-  crossorigin=""></script>
-  <script src="./app.js" type="text/javascript"></script>
-</body>
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/AhuraMagda">AhuraMagda</a>.
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script src="./app.js" type="text/javascript"></script>
+  </body>
 </html>
